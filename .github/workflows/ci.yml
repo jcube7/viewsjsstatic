@@ -24,24 +24,10 @@ jobs:
     - name: Build project
       run: npm run build
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: dist-files
-        path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Download artifact
-      uses: actions/download-artifact@v3
-      with:
-        name: dist-files
-
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.oldtokenforactions }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./dist
+        publish_branch: gh-pages
+         # Optional: If you have a custom domain
