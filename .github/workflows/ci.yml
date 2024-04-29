@@ -27,7 +27,7 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.oldtokenforactions }}
+        github_token: ${{ secrets.OLDTOKENFORACTIONS }}
         publish_dir: ./dist
         publish_branch: gh-pages
          # Optional: If you have a custom domain
